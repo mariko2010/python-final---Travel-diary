@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <div class="container">
+    <a class="navbar-brand " href="#">
+        <h3 class="mb-0" style="color: #FFFF8F;">Travel Diary</h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" style="color: #FFFDD0;" href="/">მთავარი</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #FFFDD0;" href="/blogs">ბლოგები</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " style="color: #FFFDD0;" href="/about">ჩვენს შესახებ</a>
+        </li>
+        <li class="nav-item">
+          {% if current_user.is_authenticated %}
+          <a class="nav-link " style="color: #FFFDD0;"  href="/user/{{ current_user.username }}">პროფილი</a>
+          {% endif %}
+        </li>
+
+      </ul>
+
+  <nav class="navbar navbar-light ">
+  <form class="container-fluid justify-content-start">
+    {% if current_user.is_authenticated %}
+    <a href="/logout" class="btn btn-outline-light me-2">გამოსვლა</a>
+    {% else %}
+    <a href="/login" class="btn btn-outline-light me-2">შესვლა</a>
+    <a href="/register" class="btn btn-outline-light me-2">რეგისტრაცია</a>
+    {% endif %}
+
+  </form>
+</nav>
+
+    </div>
+  </div>
+</nav>
